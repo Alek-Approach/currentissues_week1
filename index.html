@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Week 1 – Sources, Framing & Omission | Current Issues BP/AAP | Approach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#16345f; --navy-deep:#0e2546; --gold:#d4a017; --gold-pale:#faf3e2; --gold-soft:#f0ddad;
+  --sky:#e1e8f2; --line:#c5cedd; --ink:#1d2433; --muted:#566074; --paper:#ffffff; --bg:#f3f5f9;
+  --engage:#d4a017; --study:#16345f; --activate:#2f6db0; --ok:#1f7a4d; --ok-bg:#e3f3ea; --no:#b3261e; --no-bg:#fbe7e5;
+  --head:'Montserrat',system-ui,'Segoe UI',Arial,sans-serif;
+  --body:'Source Sans 3','Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5}
+img{max-width:100%}
+a{color:var(--navy);text-decoration-color:var(--gold);text-underline-offset:3px;text-decoration-thickness:2px}
+a:hover{color:var(--activate)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+h1,h2,h3,h4{font-family:var(--head);color:var(--navy);line-height:1.2;margin:0}
+p{margin:.4em 0}
+
+/* ---------- Header ---------- */
+.masthead{display:grid;grid-template-columns:auto 1fr;background:var(--paper);border-bottom:4px solid var(--gold)}
+.masthead .logo{display:flex;align-items:center;padding:16px 26px}
+.masthead .logo img{height:62px;width:auto}
+.masthead .band{background:var(--navy);color:#fff;padding:16px 28px 16px;display:flex;flex-direction:column;justify-content:center}
+.band .kicker{font-family:var(--head);font-weight:700;color:var(--gold);font-size:15px;letter-spacing:.02em}
+.band h1{color:#fff;font-size:clamp(24px,3.2vw,34px);font-weight:800;margin:4px 0 2px}
+.band .sub{color:#dfe6f1;font-size:17px}
+
+/* ---------- Toolbar ---------- */
+.toolbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 6px rgba(22,52,95,.06)}
+.toolbar .wrap{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;padding-top:9px;padding-bottom:9px}
+.field{display:flex;align-items:center;gap:6px;font-weight:600;color:var(--navy);font-size:15px}
+.field input,.field select{font:inherit;font-weight:400;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:5px 8px;background:#fff}
+.field input[type=text]{width:200px}
+.toolbar .spacer{flex:1}
+.btn{font-family:var(--head);font-weight:700;font-size:15px;border:0;border-radius:6px;padding:8px 14px;cursor:pointer;background:var(--navy);color:#fff}
+.btn:hover{background:var(--navy-deep)}
+.btn.gold{background:var(--gold);color:var(--navy-deep)}
+.btn.gold:hover{background:#c08f10}
+.btn.ghost{background:transparent;color:var(--navy);border:1px solid var(--line)}
+.btn.small{font-size:15px;padding:5px 11px}
+.timer{display:flex;align-items:center;gap:6px;font-family:var(--head);font-weight:700;color:var(--navy);font-size:15px}
+.timer output{min-width:52px;text-align:center;background:var(--sky);border-radius:6px;padding:4px 6px;font-variant-numeric:tabular-nums}
+.timer input.line{width:64px;padding:4px 6px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* ---------- Day map ---------- */
+.daymap{display:grid;grid-template-columns:100fr 30fr 100fr;gap:6px;margin:22px 0 8px}
+.daymap a{display:block;text-decoration:none;border-radius:8px;padding:10px 14px;color:#fff;background:var(--navy)}
+.daymap a.brk{background:#d9dee7;color:var(--muted);text-align:center}
+.daymap a.l2{background:var(--activate)}
+.daymap b{font-family:var(--head);display:block;font-size:16px}
+.daymap span{font-size:15px;opacity:.9}
+.intro{background:var(--paper);border-left:5px solid var(--gold);padding:12px 18px;border-radius:0 8px 8px 0;margin:12px 0 4px}
+.intro ul{margin:.3em 0 .2em;padding-left:1.2em}
+
+/* ---------- Lesson ---------- */
+.lesson{background:var(--paper);border-radius:12px;margin:26px 0;border:1px solid var(--line);overflow:hidden}
+.lesson-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:flex-end;padding:18px 24px 14px;border-bottom:1px solid var(--line);background:linear-gradient(var(--sky),var(--sky)) left bottom/100% 0 no-repeat}
+.lesson-head .tag{font-family:var(--head);font-weight:700;color:var(--gold);font-size:15px}
+.lesson-head h2{font-size:clamp(22px,2.6vw,28px);font-weight:800}
+.lesson-head p{color:var(--muted);margin:2px 0 0}
+.sources{background:var(--gold-pale);border-top:1px solid var(--gold-soft);border-bottom:1px solid var(--gold-soft);padding:12px 24px;font-size:16px}
+.sources h4{font-size:15px;margin-bottom:4px}
+.sources ul{margin:0;padding-left:1.2em;columns:2 340px;column-gap:28px}
+.sources li{margin:2px 0;break-inside:avoid}
+.sources .note{color:var(--muted);font-size:15px;margin-top:6px}
+
+.stage{display:grid;grid-template-columns:44px 1fr;border-top:1px solid var(--line)}
+.stage:first-of-type{border-top:0}
+.stage-rail{background:var(--c);color:#fff;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--head);font-weight:800;font-size:16px;letter-spacing:.08em;display:flex;align-items:center;justify-content:flex-end;padding:14px 0}
+.stage.engage{--c:var(--engage)} .stage.engage .stage-rail{color:var(--navy-deep)}
+.stage.study{--c:var(--study)} .stage.activate{--c:var(--activate)}
+.stage-body{padding:6px 24px 14px;min-width:0}
+
+.task{padding:16px 0 14px;border-bottom:1px dashed var(--line)}
+.task:last-child{border-bottom:0}
+.task-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:6px}
+.task-head h3{font-size:19px;font-weight:700}
+.task-head .num{display:inline-block;min-width:28px;height:28px;line-height:28px;text-align:center;border-radius:50%;background:var(--c);color:#fff;font-family:var(--head);font-size:15px;font-weight:800;margin-right:6px;vertical-align:2px}
+.engage .task-head .num{color:var(--navy-deep)}
+.time{font-size:15px;color:#8a93a3;font-weight:400}
+.mode{font-size:15px;color:var(--muted);background:var(--sky);border-radius:20px;padding:1px 10px;margin-left:auto}
+.instr{color:var(--ink)}
+.small{font-size:15px;color:var(--muted)}
+
+/* inputs */
+textarea,input.line,select.fill{font:inherit;font-size:16px;color:var(--ink);background:#fbfcfe;border:1px solid var(--line);border-radius:6px;padding:6px 9px;width:100%}
+textarea{min-height:58px;resize:vertical;line-height:1.45;display:block}
+textarea:focus,input.line:focus,select.fill:focus{border-color:var(--navy);background:#fff;outline:none;box-shadow:0 0 0 3px rgba(212,160,23,.35)}
+input.gap{font:inherit;font-size:16px;width:150px;border:0;border-bottom:2px solid var(--line);background:#fbfcfe;padding:1px 6px;margin:0 2px;color:var(--navy);font-weight:600}
+input.gap:focus{outline:none;border-bottom-color:var(--gold)}
+select.fill{width:auto;max-width:100%;padding:4px 6px}
+.ok{border-color:var(--ok)!important;background:var(--ok-bg)!important}
+.no{border-color:var(--no)!important;background:var(--no-bg)!important}
+.result{font-weight:700;font-size:15px;margin-left:10px}
+.print-mirror{display:none}
+label.q{display:block;font-weight:600;margin:10px 0 4px;color:var(--ink)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 18px}
+
+/* headlines */
+.headlines{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0}
+.hl{border:1px solid var(--line);border-top:5px solid var(--navy);border-radius:6px;padding:12px 14px;background:#fff}
+.hl.b{border-top-color:var(--gold)}
+.hl .outlet{font-size:15px;color:var(--muted)}
+.hl .h{font-family:Georgia,'Times New Roman',serif;font-size:21px;font-weight:700;line-height:1.25;color:var(--ink);margin-top:4px}
+.choice{display:flex;flex-wrap:wrap;gap:8px 18px;margin:6px 0}
+.choice label{display:flex;gap:6px;align-items:center;cursor:pointer}
+
+/* tables */
+.tablewrap{overflow-x:auto}
+table.grid{width:100%;border-collapse:collapse;font-size:16px}
+table.grid th{font-family:var(--head);font-size:15px;color:#fff;background:var(--navy);text-align:left;padding:7px 9px;font-weight:700}
+table.grid td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}
+table.grid tr:nth-child(even) td{background:#f8f9fc}
+table.grid td.word{font-weight:700;color:var(--navy);white-space:nowrap}
+table.grid textarea{min-height:44px}
+table.grid select.fill{width:100%}
+
+/* reading */
+.facts{background:var(--sky);border-radius:8px;padding:10px 16px;margin:8px 0 14px}
+.facts h4{font-size:16px;margin-bottom:2px}
+.facts ul{margin:0;padding-left:1.2em}
+.versions{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.article{border:1px solid var(--line);border-radius:8px;padding:14px 18px;background:#fff;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.6}
+.article .lbl{font-family:var(--head);font-size:15px;font-weight:700;color:var(--gold)}
+.article h4{font-family:Georgia,serif;font-size:21px;color:var(--ink);margin:4px 0 8px;line-height:1.25}
+.article p{margin:.55em 0}
+.article .pn{font-family:var(--head);font-size:15px;color:var(--gold);font-weight:800;margin-right:4px}
+.article.single{max-width:780px}
+mark.v{background:linear-gradient(transparent 60%,var(--gold-soft) 60%);color:inherit;font-weight:700}
+.adapt{font-family:var(--body);font-size:15px;color:var(--muted);border-top:1px solid var(--line);margin-top:10px;padding-top:6px}
+
+/* language box */
+.langbox{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 10px}
+.langbox div{background:var(--gold-pale);border:1px solid var(--gold-soft);border-radius:6px;padding:7px 10px;font-size:16px}
+.langbox b{display:block;color:var(--navy);font-family:var(--head);font-size:15px}
+
+/* spotter */
+.spot{font-family:Georgia,serif;font-size:18px;line-height:1.9;margin:6px 0;padding:6px 10px;background:#fff;border:1px solid var(--line);border-radius:6px}
+.spot .w{cursor:pointer;border-radius:3px;padding:0 1px}
+.spot .w:hover{background:var(--sky)}
+.spot .w.on{background:var(--gold);color:var(--navy-deep)}
+.spot .w.sugg{outline:2px dashed var(--no);outline-offset:1px}
+
+/* cards & briefs */
+.briefs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0}
+.brief{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:16px;background:#fff}
+.brief b{display:block;font-family:var(--head);color:var(--navy);font-size:16px;margin-bottom:2px}
+.scenario{background:var(--navy);color:#fff;border-radius:10px;padding:14px 18px;margin:8px 0 12px}
+.scenario h4{color:var(--gold);font-size:17px;margin-bottom:4px}
+.scenario ul{margin:.3em 0;padding-left:1.2em}
+.options{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0}
+.opt{border:2px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff;cursor:pointer;display:block;font-size:16px}
+.opt input{margin-right:6px}
+.opt b{font-family:var(--head);color:var(--navy)}
+.opt:has(input:checked){border-color:var(--gold);background:var(--gold-pale)}
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
+.roles div{border-left:4px solid var(--activate);background:#f6f8fc;padding:7px 10px;font-size:16px;border-radius:0 6px 6px 0}
+.roles b{color:var(--navy)}
+
+/* slider */
+.slider{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:8px 0}
+.slider input[type=range]{flex:1;min-width:220px;accent-color:var(--gold)}
+.slider output{font-family:var(--head);font-weight:800;font-size:26px;color:var(--navy);min-width:86px}
+
+/* break */
+.break{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;background:repeating-linear-gradient(135deg,#e8ecf2 0 12px,#eef1f6 12px 24px);border-radius:12px;padding:16px 24px;border:1px solid var(--line)}
+.break h2{font-size:22px}
+.break p{margin:0;color:var(--muted)}
+
+/* vocab chips */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{font-size:15px;border:1px solid var(--line);border-radius:20px;padding:2px 10px;color:var(--muted);background:#fff}
+.chip.hit{background:var(--ok-bg);border-color:var(--ok);color:var(--ok);font-weight:700}
+.counter{font-size:15px;color:var(--muted);margin-top:4px}
+.bank{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bank h4{font-size:16px;margin-bottom:6px}
+.bank label{display:flex;gap:8px;align-items:baseline;font-size:16px;padding:3px 0;border-bottom:1px dotted var(--line)}
+.bank label span{color:var(--muted);font-size:15px;margin-left:auto;text-align:right}
+.homework{background:var(--navy);color:#fff;border-radius:12px;padding:18px 24px;margin:26px 0}
+.homework h2{color:var(--gold);font-size:21px;margin-bottom:6px}
+.homework a{color:#fff}
+footer{color:var(--muted);font-size:15px;text-align:center;padding:10px 0 40px}
+.reveal{display:none;margin-top:6px;background:var(--sky);border-radius:6px;padding:8px 12px;font-size:16px}
+.reveal.show{display:block}
+
+@media (max-width:860px){
+  .versions,.headlines,.row2,.bank{grid-template-columns:1fr}
+  .row3,.roles{grid-template-columns:1fr 1fr}
+  .briefs,.options,.langbox{grid-template-columns:1fr 1fr}
+  .masthead{grid-template-columns:1fr}
+  .masthead .logo{justify-content:center;padding:12px}
+  .daymap{grid-template-columns:1fr}
+  .stage{grid-template-columns:30px 1fr}
+  .stage-body{padding:4px 14px 12px}
+  .mode{margin-left:0}
+}
+@media (max-width:560px){.row3,.roles,.briefs,.options,.langbox{grid-template-columns:1fr}.field input[type=text]{width:150px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ---------- Print ---------- */
+@page{size:letter;margin:13mm 12mm}
+@media print{
+  :root{padding:0}
+  body{background:#fff;font-size:11pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar .btn,.timer,.no-print,.daymap,button{display:none!important}
+  .toolbar{position:static;box-shadow:none;border:0}
+  .toolbar .wrap{padding:4px 0}
+  .field input,.field select{border:0;border-bottom:1px solid #999;border-radius:0}
+  .wrap{max-width:none;padding:0}
+  .lesson{border:1px solid #bbb;margin:10px 0;break-before:auto}
+  #lesson2{break-before:page}
+  .task,.article,.scenario,table.grid tr,.hl,.opt,.brief{break-inside:avoid}
+  textarea{display:none!important}
+  .print-mirror{display:block;white-space:pre-wrap;min-height:1.6em;border:1px solid #bbb;border-radius:4px;padding:4px 7px;font-size:11pt;background:#fff}
+  .print-mirror:empty::after{content:" a0"}
+  input.line,select.fill,input.gap{background:#fff}
+  .ok,.no{background:#fff!important}
+  .sources ul{columns:1}
+  a{text-decoration:none}
+  .sources a::after{content:" (" attr(href) ")";font-size:9pt;color:#555;word-break:break-all}
+  .homework{border:1px solid #bbb}
+  .time{color:#777}
+  .mode{background:none;padding:0}
+  .lesson{overflow:visible}
+  .stage{display:block}
+  .stage-rail{writing-mode:horizontal-tb;transform:none;display:block;padding:3px 12px;font-size:10pt;letter-spacing:.1em}
+  .stage-body{padding:2px 12px 6px}
+  .task{padding:8px 0}
+  .lesson-head,.sources{padding:8px 12px}
+  .masthead .logo img{height:44px}
+  .masthead .band{padding:10px 18px}
+  .article{font-size:11pt;line-height:1.45;padding:8px 12px}
+  table.grid{font-size:11pt}
+  .stage-rail{break-after:avoid}
+  .small,.time,.mode,.chip,.adapt,.sources{font-size:11pt}
+  table.grid td{padding:3px 6px}
+  .intro{padding:6px 12px}
+  .break{padding:8px 14px}
+}
+
+/* week-specific additions */
+.guess{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0}
+.guess>div{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.guess label{font-weight:600;display:block;margin-bottom:4px}
+.guess .ans{font-family:var(--head);font-weight:800;color:var(--navy);font-size:20px;margin-top:6px;display:none}
+.guess.revealed .ans{display:block}
+.figs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 14px}
+.figs div{background:var(--sky);border-radius:8px;padding:8px 10px}
+.figs b{display:block;font-family:var(--head);font-size:20px;color:var(--navy)}
+.figs span{font-size:15px;color:var(--muted)}
+.example td{background:var(--gold-pale)!important;font-style:italic}
+@media (max-width:860px){.guess{grid-template-columns:1fr}.figs{grid-template-columns:1fr 1fr}}
+@media print{.figs div{border:1px solid #ccc}.guess:not(.revealed) .ans{display:none}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="logo"><img src="data:image/png;base64,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" alt="Approach International Student Center"></div>
+  <div class="band">
+    <div class="kicker">Current Issues BP/AAP · Fall 2026 · Week 1 of 11</div>
+    <h1>Sources, Framing &amp; Omission</h1>
+    <div class="sub">When the organizer writes the report: who decides what the story is?</div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <label class="field">Name <input type="text" id="sname" data-save placeholder="Your full name" autocomplete="name"></label>
+    <label class="field">Date <input type="date" id="sdate" data-save></label>
+    <label class="field">I'm joining <select id="smode" data-save><option value="">choose…</option><option>in person</option><option>online</option></select></label>
+    <span class="spacer"></span>
+    <div class="timer no-print" aria-label="Activity timer">
+      <input class="line" type="number" id="tmin" min="1" max="60" value="10" aria-label="Minutes"> min
+      <output id="tout">10:00</output>
+      <button class="btn small" id="tgo" type="button">Start</button>
+      <button class="btn small ghost" id="treset" type="button">Reset</button>
+    </div>
+    <button class="btn gold" id="printBtn" type="button">Print / Save as PDF</button>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <nav class="daymap" aria-label="Today's plan">
+    <a href="#lesson1"><b>Lesson 1 · Topic 1</b><span>FIFA reviews its own World Cup · 100 min</span></a>
+    <a href="#break" class="brk"><b>Break</b><span>30 min</span></a>
+    <a href="#lesson2" class="l2"><b>Lesson 2 · Topic 2</b><span>Oktoberfest 2026: "sunny, cheerful and peaceful"? · 100 min</span></a>
+  </nav>
+
+  <section class="intro">
+    <strong>By the end of today you will be able to:</strong>
+    <ul>
+      <li>compare how two sources frame the same event and give three examples of what each includes, emphasizes, or leaves out;</li>
+      <li>use framing vocabulary (<em>emphasize, downplay, portray as, frame as</em>) to explain a writer's choices;</li>
+      <li>check an official report for its author, date, evidence, purpose and omissions.</li>
+    </ul>
+    <p class="small">Your answers save automatically in this browser. When you finish, use <b>Print / Save as PDF</b> to keep a copy of your work.</p>
+  </section>
+
+  <!-- ================= LESSON 1 ================= -->
+  <section class="lesson" id="lesson1">
+    <div class="lesson-head">
+      <div>
+        <div class="tag">Lesson 1 · Topic 1 · 100 minutes</div>
+        <h2>Marking its own homework? FIFA reviews the 2026 World Cup</h2>
+        <p>Spain are world champions. Now FIFA has published its official analysis of the tournament. What does it focus on, and what does it leave out?</p>
+      </div>
+    </div>
+    <div class="sources">
+      <h4>Sources for this topic</h4>
+      <ul>
+        <li><a href="https://www.google.com/search?q=site%3Afifa.com+%22FIFA+publishes+comprehensive+post-tournament+report+on+FIFA+World+Cup+2026%22" target="_blank" rel="noopener">"FIFA publishes comprehensive post-tournament report on FIFA World Cup 2026™" (FIFA press release, 2026)</a></li>
+        <li><a href="https://www.fifatrainingcentre.com/" target="_blank" rel="noopener">FIFA Training Centre: where the full technical report is published</a></li>
+      </ul>
+      <p class="note">Text A is a B2+ adaptation of FIFA's press release. Text B is a model independent report written for this class to show a second frame. It is not from a real outlet.</p>
+    </div>
+
+    <!-- ENGAGE -->
+    <div class="stage engage">
+      <div class="stage-rail">ENGAGE</div>
+      <div class="stage-body">
+        <div class="task">
+          <div class="task-head"><h3><span class="num">1</span>Who should write the report card?</h3><span class="time">7 min</span><span class="mode">Individual, then pairs · online: post your top choice in chat</span></div>
+          <p class="instr">After a huge event like the World Cup, someone writes the official review. How much would you trust a review written by each of these?</p>
+          <div class="tablewrap"><table class="grid">
+            <thead><tr><th>Who writes the review</th><th style="width:220px">Trust (1 = not at all, 5 = completely)</th></tr></thead>
+            <tbody>
+              <tr><td>FIFA, the organizer of the tournament</td><td><select class="fill" data-save id="t1"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+              <tr><td>FIFPRO, the global players' union</td><td><select class="fill" data-save id="t2"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+              <tr><td>A major international newspaper</td><td><select class="fill" data-save id="t3"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+              <tr><td>A fans' association</td><td><select class="fill" data-save id="t4"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+              <tr><td>University sports researchers</td><td><select class="fill" data-save id="t5"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+            </tbody>
+          </table></div>
+          <label class="q" for="e1">Why did you give FIFA that score? Would any company publish a report saying its own product failed?</label>
+          <textarea id="e1" data-save></textarea>
+        </div>
+
+        <div class="task">
+          <div class="task-head"><h3><span class="num">2</span>Predict from the headline</h3><span class="time">8 min</span><span class="mode">Pairs · online: breakout room</span></div>
+          <p class="instr">These are two real FIFA headlines from after the tournament.</p>
+          <div class="headlines">
+            <div class="hl"><div class="outlet">FIFA press release</div><div class="h">FIFA publishes comprehensive post-tournament report on FIFA World Cup 2026™</div></div>
+            <div class="hl b"><div class="outlet">Related FIFA article</div><div class="h">Technical Study Group hails competitive 48-team FIFA World Cup™ as goals and intensity rise</div></div>
+          </div>
+          <div class="row2">
+            <div><label class="q" for="p1">Predict three things the report will talk about</label><textarea id="p1" data-save></textarea></div>
+            <div><label class="q" for="p2">Predict three things it probably won't mention</label><textarea id="p2" data-save></textarea></div>
+          </div>
+          <p class="small">Keep these predictions. You'll check them in Task 9.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STUDY -->
+    <div class="stage study">
+      <div class="stage-rail">STUDY</div>
+      <div class="stage-body">
+        <div class="task check-group">
+          <div class="task-head"><h3><span class="num">3</span>Vocabulary in context</h3><span class="time">10 min</span><span class="mode">Individual, then check with a partner</span></div>
+          <p class="instr">These words appear in today's texts. Choose the best meaning for each, then press <b>Check</b>.</p>
+          <div class="tablewrap"><table class="grid">
+            <thead><tr><th>Word</th><th>In context</th><th style="width:38%">Meaning</th></tr></thead>
+            <tbody id="vocab1"></tbody>
+          </table></div>
+          <p style="margin-top:8px"><button class="btn small" type="button" data-check>Check</button><span class="result" aria-live="polite"></span></p>
+        </div>
+
+        <div class="task">
+          <div class="task-head"><h3><span class="num">4</span>Read two versions of the same news</h3><span class="time">15 min</span><span class="mode">Individual · annotate as you read</span></div>
+          <p class="instr">Both texts report the same facts (blue box). As you read, notice what each puts first, which words it chooses, and whose voices you hear.</p>
+          <div class="facts">
+            <h4>Facts both texts agree on</h4>
+            <ul>
+              <li>FIFA has published a technical report on the 2026 World Cup, analysing all 104 matches with video and tracking data.</li>
+              <li>It was written by FIFA's Technical Study Group and its Football Performance Insights Department.</li>
+              <li>Spain beat Argentina in the final on 19 July 2026 at New York New Jersey Stadium in East Rutherford.</li>
+              <li>Key findings: counter-pressing was a defining trend, there was no single winning formula, and goalkeepers increasingly help build attacks.</li>
+            </ul>
+          </div>
+          <div class="versions">
+            <article class="article">
+              <div class="lbl">Text A · FIFA press release (adapted)</div>
+              <h4>FIFA's report reveals how the best teams are reshaping football</h4>
+              <p>FIFA has published a <mark class="v">comprehensive</mark> report on the 2026 World Cup, promising "unprecedented insights" into how the best national teams and players on the planet are changing the modern game. FIFA's own experts studied every one of the 104 matches, combining football knowledge with advanced data and video.</p>
+              <p>The main <mark class="v">finding</mark> is that counter-pressing, winning the ball back immediately after losing it, was one of the defining <mark class="v">trends</mark> of the tournament. Champions Spain were especially <mark class="v">adept</mark> at turning a lost ball into an instant attack.</p>
+              <p>The report also shows there was no single route to success. Cabo Verde, for example, proved that compact, well-organised defending can help a team compete with more talented opponents. Goalkeepers, meanwhile, are <mark class="v">evolving</mark> from shot-stoppers into active playmakers.</p>
+              <p>Arsène Wenger, FIFA's Chief of Global Football Development, described the World Cup as "the highest level of our game" and said the aim was to understand not just what happened, but why. The report is available to coaches, analysts and other <mark class="v">stakeholders</mark> on the FIFA Training Centre.</p>
+            </article>
+            <article class="article">
+              <div class="lbl">Text B · model independent report (written for class)</div>
+              <h4>FIFA marks its own homework: tactics report silent on off-field debates</h4>
+              <p>FIFA's new review of the 2026 World Cup is detailed, but it is a review of FIFA's tournament written by FIFA's own staff. It studies all 104 matches and highlights trends such as counter-pressing, which helped Spain beat Argentina in the final, and the growing role of goalkeepers.</p>
+              <p>What the report does not discuss is just as revealing. There is nothing on ticket prices, which fan groups strongly criticized before the tournament, when FIFA used demand-based pricing for the first time. There is nothing on the summer heat that players' unions warned about, or on the costs for travelling fans and host cities.</p>
+              <p>A related FIFA article praises the new 48-team format as "competitive", yet the <mark class="v">press release</mark> quotes only FIFA staff: no players' union, no independent researchers and no fans.</p>
+              <p>To be fair, a technical report is meant to focus on how football is played, not on business decisions. Still, when an organization evaluates its own event, readers should ask who chose the questions, and which questions were left out.</p>
+            </article>
+          </div>
+          <p class="adapt">Text A: original B2+ adaptation of FIFA's press release, with short quotations attributed to FIFA. Text B: written for this course to model an independent frame. Its background points (pre-tournament criticism of ticket pricing and heat warnings) were widely reported before the tournament.</p>
+        </div>
+
+        <div class="task check-group">
+          <div class="task-head"><h3><span class="num">5</span>Information or promotion?</h3><span class="time">6 min</span><span class="mode">Individual</span></div>
+          <p class="instr">Press releases mix checkable information with promotional language (words that sell). Decide which each phrase from FIFA's release is.</p>
+          <div class="tablewrap"><table class="grid"><tbody>
+            <tr><td>1. "analysed all 104 matches"</td><td><select class="fill" data-answer="info" data-save><option value="">—</option><option value="info">Information</option><option value="promo">Promotion</option></select></td></tr>
+            <tr><td>2. "unprecedented insights"</td><td><select class="fill" data-answer="promo" data-save><option value="">—</option><option value="info">Information</option><option value="promo">Promotion</option></select></td></tr>
+            <tr><td>3. "the best national teams and players on the planet"</td><td><select class="fill" data-answer="promo" data-save><option value="">—</option><option value="info">Information</option><option value="promo">Promotion</option></select></td></tr>
+            <tr><td>4. "Spain beat Argentina in the final on 19 July"</td><td><select class="fill" data-answer="info" data-save><option value="">—</option><option value="info">Information</option><option value="promo">Promotion</option></select></td></tr>
+            <tr><td>5. "unique data depth"</td><td><select class="fill" data-answer="promo" data-save><option value="">—</option><option value="info">Information</option><option value="promo">Promotion</option></select></td></tr>
+            <tr><td>6. "nine tactical studies"</td><td><select class="fill" data-answer="info" data-save><option value="">—</option><option value="info">Information</option><option value="promo">Promotion</option></select></td></tr>
+            <tr><td>7. "football at its very best"</td><td><select class="fill" data-answer="promo" data-save><option value="">—</option><option value="info">Information</option><option value="promo">Promotion</option></select></td></tr>
+            <tr><td>8. "available on the FIFA Training Centre"</td><td><select class="fill" data-answer="info" data-save><option value="">—</option><option value="info">Information</option><option value="promo">Promotion</option></select></td></tr>
+          </tbody></table></div>
+          <p style="margin-top:8px"><button class="btn small" type="button" data-check>Check</button><span class="result" aria-live="polite"></span></p>
+        </div>
+
+        <div class="task">
+          <div class="task-head"><h3><span class="num">6</span>Credibility and framing checklist</h3><span class="time">12 min</span><span class="mode">Pairs · online: share one screen or doc</span></div>
+          <p class="instr">Compare the two texts. In the last row, give at least <b>three examples</b> of omission across the two texts.</p>
+          <div class="tablewrap"><table class="grid">
+            <thead><tr><th style="width:18%">Checklist</th><th>Text A (FIFA)</th><th>Text B (independent model)</th></tr></thead>
+            <tbody>
+              <tr><td class="word">Author</td><td><textarea data-save id="g1a"></textarea></td><td><textarea data-save id="g1b"></textarea></td></tr>
+              <tr><td class="word">Purpose</td><td><textarea data-save id="g2a"></textarea></td><td><textarea data-save id="g2b"></textarea></td></tr>
+              <tr><td class="word">Evidence &amp; voices</td><td><textarea data-save id="g3a"></textarea></td><td><textarea data-save id="g3b"></textarea></td></tr>
+              <tr><td class="word">Emphasizes</td><td><textarea data-save id="g4a"></textarea></td><td><textarea data-save id="g4b"></textarea></td></tr>
+              <tr><td class="word">Leaves out</td><td><textarea data-save id="g5a"></textarea></td><td><textarea data-save id="g5b"></textarea></td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="task">
+          <div class="task-head"><h3><span class="num">7</span>Language focus: talking about framing</h3><span class="time">7 min</span><span class="mode">Individual</span></div>
+          <div class="langbox">
+            <div><b>emphasize</b>emphasize + noun<br><i>Text A emphasizes tactics.</i></div>
+            <div><b>downplay</b>downplay + noun<br><i>Text A downplays who wrote it.</i></div>
+            <div><b>portray X as Y</b><i>Text B portrays FIFA as a judge of its own work.</i></div>
+            <div><b>frame X as Y</b><i>Text A frames the report as a gift to coaches.</i></div>
+          </div>
+          <p class="instr">Rewrite each plain sentence with the verb in brackets.</p>
+          <label class="q" for="lf1">1. Text A talks a lot about Spain's style of play. (emphasize)</label><input class="line" id="lf1" data-save>
+          <label class="q" for="lf2">2. Text A says little about the fact that FIFA wrote the report. (downplay)</label><input class="line" id="lf2" data-save>
+          <label class="q" for="lf3">3. Text B presents the report as one-sided. (portray … as)</label><input class="line" id="lf3" data-save>
+          <label class="q" for="lf4">4. Text B treats the story as a question of trust. (frame … as)</label><input class="line" id="lf4" data-save>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIVATE -->
+    <div class="stage activate">
+      <div class="stage-rail">ACTIVATE</div>
+      <div class="stage-body">
+        <div class="task">
+          <div class="task-head"><h3><span class="num">8</span>Research sprint: what's missing?</h3><span class="time">22 min</span><span class="mode">Groups of 3 · online: breakout room, everyone searches</span></div>
+          <p class="instr">Each group takes one topic that FIFA's technical report doesn't cover. In <b>10 minutes</b>, find <b>one credible source</b> about it (a reputable news outlet, a union, or a research body). Then report back to the class in 90 seconds.</p>
+          <div class="briefs">
+            <div class="brief"><b>A. Ticket prices</b>Who could afford to attend? Did demand-based pricing work?</div>
+            <div class="brief"><b>B. Heat &amp; player health</b>Were the warnings before the tournament justified?</div>
+            <div class="brief"><b>C. The 48-team format</b>More teams: better football, or too many matches?</div>
+            <div class="brief"><b>D. Fans &amp; host cities</b>Travel, costs, atmosphere, local impact.</div>
+          </div>
+          <div class="row2">
+            <div><label class="q" for="rs1">Our topic</label><select class="fill" id="rs1" data-save><option value="">choose…</option><option>A. Ticket prices</option><option>B. Heat &amp; player health</option><option>C. The 48-team format</option><option>D. Fans &amp; host cities</option></select></div>
+            <div><label class="q" for="rs2">Source title, outlet and date</label><input class="line" id="rs2" data-save></div>
+          </div>
+          <label class="q" for="rs3">Link</label><input class="line" id="rs3" data-save placeholder="https://">
+          <label class="q" for="rs4">One key fact, in your own words</label><textarea id="rs4" data-save></textarea>
+          <div class="row2">
+            <div><label class="q" for="rs5">Scope or spin? Is it fair for a <i>technical</i> report to leave this out?</label>
+              <select class="fill" id="rs5" data-save><option value="">choose…</option><option>Fair: it's outside the report's scope</option><option>Partly fair</option><option>Unfair: an important omission</option></select></div>
+            <div><label class="q" for="rs6">Our reason</label><textarea id="rs6" data-save></textarea></div>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-head"><h3><span class="num">9</span>Write the other report</h3><span class="time">13 min</span><span class="mode">Pairs · then share openings in chat</span></div>
+          <p class="instr">Choose a different stakeholder and write the opening of <i>their</i> review of the 2026 World Cup (50–70 words). Use what you found in Task 8.</p>
+          <select class="fill" id="wr0" data-save><option value="">Our stakeholder…</option><option>Players' union</option><option>Fans' association</option><option>A host city's mayor</option><option>An independent sports journalist</option></select>
+          <label class="q" for="wr1">Our opening</label><textarea id="wr1" data-save style="min-height:90px"></textarea>
+          <div class="row2">
+            <div><label class="q" for="wr2">Explain your frame in one sentence. Use two framing verbs.</label><textarea id="wr2" data-save></textarea></div>
+            <div><label class="q" for="wr3">Look back at Task 2. Which predictions were right?</label><textarea id="wr3" data-save></textarea></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BREAK ================= -->
+  <section class="break" id="break">
+    <h2>Break · 30 minutes</h2>
+    <p>Quick question to think about: have you ever been to a big festival? Who told you afterwards how it went?</p>
+  </section>
+
+  <!-- ================= LESSON 2 ================= -->
+  <section class="lesson" id="lesson2">
+    <div class="lesson-head">
+      <div>
+        <div class="tag">Lesson 2 · Topic 2 · 100 minutes</div>
+        <h2>"Sunny, cheerful and peaceful"? Munich reviews a record Oktoberfest</h2>
+        <p>The world's biggest folk festival just ended with a record crowd. The City of Munich's own report is full of data. Does the data match the frame?</p>
+      </div>
+    </div>
+    <div class="sources">
+      <h4>Sources for this topic</h4>
+      <ul>
+        <li><a href="https://www.google.com/search?q=site%3Aoktoberfest.de+%22Preliminary+Final+Report+on+Oktoberfest+2026%22" target="_blank" rel="noopener">"Preliminary Final Report on Oktoberfest 2026" (City of Munich, official Oktoberfest website, October 2026)</a></li>
+        <li><a href="https://www.oktoberfest.de/en" target="_blank" rel="noopener">Oktoberfest Munich: official website of the City of Munich</a></li>
+      </ul>
+      <p class="note">Task 13 is an original B2+ adaptation of the City of Munich's report. Figures are taken from the report and are preliminary estimates.</p>
+    </div>
+
+    <!-- ENGAGE -->
+    <div class="stage engage">
+      <div class="stage-rail">ENGAGE</div>
+      <div class="stage-body">
+        <div class="task">
+          <div class="task-head"><h3><span class="num">10</span>Guess the numbers</h3><span class="time">6 min</span><span class="mode">Individual · online: post your guesses in chat</span></div>
+          <p class="instr">Oktoberfest 2026 ran for 16 days in Munich and ended on 4 October. Guess, then reveal.</p>
+          <div class="guess" id="guessBox">
+            <div><label for="gs1">Visitors (millions)</label><input class="line" id="gs1" data-save inputmode="decimal"><div class="ans">7.4 million: a record</div></div>
+            <div><label for="gs2">Beer served (millions of litres)</label><input class="line" id="gs2" data-save inputmode="decimal"><div class="ans">about 6.7 million litres</div></div>
+            <div><label for="gs3">Beer mugs taken by visitors and collected at the exits</label><input class="line" id="gs3" data-save inputmode="numeric"><div class="ans">about 105,000</div></div>
+          </div>
+          <p><button class="btn small" type="button" id="revealBtn">Reveal the answers</button></p>
+          <label class="q" for="gs4">Which of these numbers would the city choose for its headline? Which number might a safety reporter look for instead?</label>
+          <textarea id="gs4" data-save></textarea>
+        </div>
+        <div class="task">
+          <div class="task-head"><h3><span class="num">11</span>Lesson 1 rewind: predict the frame</h3><span class="time">6 min</span><span class="mode">Pairs · online: breakout room</span></div>
+          <p class="instr">The report was written by the City of Munich, which organizes the festival. Use Lesson 1 words (<i>stakeholder, emphasize, downplay, findings, press release</i>).</p>
+          <label class="q" for="rw1">Name three stakeholders at Oktoberfest besides the visitors.</label><input class="line" id="rw1" data-save>
+          <label class="q" for="rw2">Like FIFA, the city will probably emphasize…</label><input class="line" id="rw2" data-save>
+          <label class="q" for="rw3">…and may downplay…</label><input class="line" id="rw3" data-save>
+        </div>
+      </div>
+    </div>
+
+    <!-- STUDY -->
+    <div class="stage study">
+      <div class="stage-rail">STUDY</div>
+      <div class="stage-body">
+        <div class="task check-group">
+          <div class="task-head"><h3><span class="num">12</span>Vocabulary: complete the summary</h3><span class="time">9 min</span><span class="mode">Individual</span></div>
+          <p class="instr">Type a word from the bank in each gap. Then press <b>Check</b>.</p>
+          <p class="chips" aria-label="Word bank"><span class="chip">preliminary</span><span class="chip">overshadowed</span><span class="chip">deployed</span><span class="chip">visitor management</span><span class="chip">overcrowding</span><span class="chip">incidents</span><span class="chip">attributed</span><span class="chip">consumption</span><span class="chip">restrained</span><span class="chip">effective</span></p>
+          <p style="line-height:2.1">The city's <input class="gap" data-answer="preliminary" data-save> report, an early version written before all the data is final, calls the festival a success, although it was <input class="gap" data-answer="overshadowed" data-save> by a fatal accident. Extra security staff were <input class="gap" data-answer="deployed" data-save> at the entrances, and a new <input class="gap" data-answer="visitor management" data-save> campaign spread guests across the week to prevent <input class="gap" data-answer="overcrowding" data-save>. Police recorded more <input class="gap" data-answer="incidents" data-save> than in 2025, but officials <input class="gap" data-answer="attributed" data-save> the rise to the bigger crowds. Beer <input class="gap" data-answer="consumption" data-save> increased, yet ride operators said guests were more <input class="gap" data-answer="restrained" data-save> with their money. Overall, the city says its new safety concept was <input class="gap" data-answer="effective" data-save>.</p>
+          <p><button class="btn small" type="button" data-check>Check</button><span class="result" aria-live="polite"></span></p>
+        </div>
+
+        <div class="task">
+          <div class="task-head"><h3><span class="num">13</span>Read the report</h3><span class="time">14 min</span><span class="mode">Individual · mark positive words in one color, problems in another</span></div>
+          <div class="figs">
+            <div><b>7.4 m</b><span>visitors (2025: 6.5 m)</span></div>
+            <div><b>~1,600</b><span>police calls (higher than 2025)</span></div>
+            <div><b>+18.5%</b><span>ambulance patients</span></div>
+            <div><b>−7%</b><span>electricity use</span></div>
+          </div>
+          <article class="article single">
+            <div class="lbl">Official report · B2+ adaptation</div>
+            <h4>"Sunny, cheerful and peaceful": Munich reviews a record Oktoberfest</h4>
+            <p><span class="pn">P1</span>The City of Munich has summed up this year's Oktoberfest as "sunny, cheerful and peaceful". According to initial estimates, around 7.4 million people visited the festival over its 16 days, up from 6.5 million in 2025, making it the most visited Oktoberfest in history. The report adds that the festival was <mark class="v">overshadowed</mark> by a fatal accident involving an employee of one of the rides.</p>
+            <p><span class="pn">P2</span>Organizers credit the late-summer weather and a <mark class="v">visitor management</mark> campaign called "How to Wiesn", which encouraged people to come on weekdays. Weekday visits rose by about 25%. A new security concept, with a security centre, more cameras, AI technology and staff watching crowd movements, was used to prevent <mark class="v">overcrowding</mark>. On some busy Saturdays, the main entrances were closed for around 30 minutes and visitors were sent to side entrances.</p>
+            <p><span class="pn">P3</span>Sales were generally strong. Beer <mark class="v">consumption</mark> rose 2.7% to around 6.7 million litres, while demand for alcohol-free beer grew by almost 11%. However, ride and stall operators said guests were more <mark class="v">restrained</mark> in their spending and often simply walked around.</p>
+            <p><span class="pn">P4</span>Police received around 1,600 calls, more than last year, mostly linked to drug offences. The ambulance service treated 18.5% more patients, although only 1.1% were taken to hospital. On the first day, a security worker was knocked over and injured when crowds rushed into the tents. Officials <mark class="v">attribute</mark> these increases mainly to the higher number of visitors. Separately, the safety inspectors who check the rides reported "significantly lower" numbers of injuries than in previous years.</p>
+            <p><span class="pn">P5</span>On the environmental side, electricity use fell by about 7%, and around 92 tonnes of rubbish were collected from the festival grounds. Use of the free drinking-water fountains rose by more than 50%. Around 4,000 lost items were handed in, and stewards collected about 105,000 beer mugs that visitors had tried to take home.</p>
+            <p class="adapt">Original adaptation (about 370 words) of the City of Munich's "Preliminary Final Report on Oktoberfest 2026". Short phrases in quotation marks are from the report.</p>
+          </article>
+        </div>
+
+        <div class="task">
+          <div class="task-head"><h3><span class="num">14</span>Frame vs. data</h3><span class="time">12 min</span><span class="mode">Pairs · online: breakout room</span></div>
+          <p class="instr">A frame can say one thing while the details say something more complicated. Find two more tensions in the report. Then decide whether the report explains each one fairly.</p>
+          <div class="tablewrap"><table class="grid">
+            <thead><tr><th>The frame says…</th><th>But the details show…</th><th>Does the report explain it? Is the explanation convincing?</th></tr></thead>
+            <tbody>
+              <tr class="example"><td>"Peaceful"</td><td>A worker died; police calls rose to about 1,600; a security worker was injured.</td><td>Partly: it links the higher calls to bigger crowds, but the death appears in the introduction, not in the headline.</td></tr>
+              <tr><td><textarea data-save id="fd1a"></textarea></td><td><textarea data-save id="fd1b"></textarea></td><td><textarea data-save id="fd1c"></textarea></td></tr>
+              <tr><td><textarea data-save id="fd2a"></textarea></td><td><textarea data-save id="fd2b"></textarea></td><td><textarea data-save id="fd2c"></textarea></td></tr>
+            </tbody>
+          </table></div>
+          <p class="small">Hint: compare the injury statements in P4, and the record crowd with what operators said in P3.</p>
+        </div>
+
+        <div class="task check-group">
+          <div class="task-head"><h3><span class="num">15</span>Credibility detective</h3><span class="time">7 min</span><span class="mode">Individual</span></div>
+          <p class="instr">Check the original report's author, date and evidence.</p>
+          <div class="tablewrap"><table class="grid"><tbody>
+            <tr><td>1. Who wrote the report?</td><td><select class="fill" data-answer="city" data-save><option value="">—</option><option value="press">Independent journalists</option><option value="city">The City of Munich, which organizes the festival</option><option value="police">The Munich police</option></select></td></tr>
+            <tr><td>2. The visitor figure comes from "initial estimates". This means it is…</td><td><select class="fill" data-answer="early" data-save><option value="">—</option><option value="final">a final, verified count</option><option value="early">an early figure that may change</option><option value="guess">a journalist's guess</option></select></td></tr>
+            <tr><td>3. The original report gives the busiest electricity day as "Friday, September 24". The festival ended on Sunday, 4 October 2026. What day was 24 September 2026?</td><td><select class="fill" data-answer="thu" data-save><option value="">—</option><option value="thu">Thursday</option><option value="fri">Friday</option><option value="sat">Saturday</option></select></td></tr>
+            <tr><td>4. The report gives lost-item numbers "as of Monday, October 5", after the festival had ended. These numbers are…</td><td><select class="fill" data-answer="forecast" data-save><option value="">—</option><option value="count">an exact count</option><option value="forecast">partly a forecast</option></select></td></tr>
+          </tbody></table></div>
+          <p style="margin-top:8px"><button class="btn small" type="button" data-check>Check</button><span class="result" aria-live="polite"></span></p>
+          <label class="q" for="cd5">A small date error doesn't make the whole report false. What <i>does</i> it tell a careful reader?</label>
+          <textarea id="cd5" data-save></textarea>
+        </div>
+
+        <div class="task">
+          <div class="task-head"><h3><span class="num">16</span>Positive-language spotter</h3><span class="time">6 min</span><span class="mode">Individual</span></div>
+          <p class="instr">Loaded language can be positive, too. Click every word that judges or sells rather than informs. Then rewrite one sentence neutrally.</p>
+          <div class="spot" data-key="sp1" data-loaded="truly,magnificent,enjoyed">Guests, officials and vendors enjoyed a truly magnificent Oktoberfest.</div>
+          <div class="spot" data-key="sp2" data-loaded="extremely,successful">The city's weekday visitor campaign was extremely successful.</div>
+          <div class="spot" data-key="sp3" data-loaded="unprecedented,best,planet">The report offers unprecedented insights into the best players on the planet.</div>
+          <p><button class="btn small ghost" type="button" id="showLoaded">Show suggested answers</button></p>
+          <label class="q" for="neutral">My neutral version</label>
+          <input class="line" id="neutral" data-save>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIVATE -->
+    <div class="stage activate">
+      <div class="stage-rail">ACTIVATE</div>
+      <div class="stage-body">
+        <div class="task">
+          <div class="task-head"><h3><span class="num">17</span>Four newsrooms, one report</h3><span class="time">20 min</span><span class="mode">Groups of 3 · online: breakout room, one typist</span></div>
+          <p class="instr">Your teacher gives your group one newsroom. Using <b>only facts from the report</b>, write a headline and a three-sentence opening for your readers. Then post your headline in the chat. Can the class guess your newsroom?</p>
+          <div class="briefs">
+            <div class="brief"><b>1. Safety news site</b>Readers care about crime, injuries and crowd control.</div>
+            <div class="brief"><b>2. Munich business paper</b>Readers are brewers, tent owners and stall operators.</div>
+            <div class="brief"><b>3. International travel magazine</b>Readers are planning a trip to Oktoberfest 2027.</div>
+            <div class="brief"><b>4. Sustainability blog</b>Readers care about energy, water and waste.</div>
+          </div>
+          <div class="row2">
+            <div><label class="q" for="nb">Our newsroom</label><select class="fill" id="nb" data-save><option value="">choose…</option><option>1. Safety news site</option><option>2. Munich business paper</option><option>3. International travel magazine</option><option>4. Sustainability blog</option></select></div>
+            <div><label class="q" for="nh">Headline (12 words maximum)</label><input class="line" id="nh" data-save></div>
+          </div>
+          <label class="q" for="nl">Opening (three sentences)</label>
+          <textarea id="nl" data-save style="min-height:90px"></textarea>
+          <label class="q" for="nd">What did we leave out, and would our readers notice?</label>
+          <textarea id="nd" data-save></textarea>
+        </div>
+
+        <div class="task">
+          <div class="task-head"><h3><span class="num">18</span>Where do you stand?</h3><span class="time">12 min</span><span class="mode">Whole class · in room: stand on a line · online: vote in poll or chat</span></div>
+          <p class="instr">The teacher reads the statement. Everyone votes, then two people from each side explain their reasons. You may change your vote after listening.</p>
+          <div class="scenario"><h4>Statement</h4>"When someone dies at an event, the organizer's official report should put it in the headline, not further down the text."</div>
+          <div class="row2">
+            <div>
+              <p class="q" style="font-weight:600;margin:4px 0">My first vote</p>
+              <div class="choice">
+                <label><input type="radio" name="v1" value="1" data-save> Strongly disagree</label>
+                <label><input type="radio" name="v1" value="2" data-save> Disagree</label>
+                <label><input type="radio" name="v1" value="3" data-save> Agree</label>
+                <label><input type="radio" name="v1" value="4" data-save> Strongly agree</label>
+              </div>
+              <p class="q" style="font-weight:600;margin:8px 0 4px">After the discussion</p>
+              <div class="choice">
+                <label><input type="radio" name="v2" value="1" data-save> Strongly disagree</label>
+                <label><input type="radio" name="v2" value="2" data-save> Disagree</label>
+                <label><input type="radio" name="v2" value="3" data-save> Agree</label>
+                <label><input type="radio" name="v2" value="4" data-save> Strongly agree</label>
+              </div>
+            </div>
+            <div><label class="q" for="dv">The most convincing argument I heard (and who made it)</label><textarea id="dv" data-save></textarea></div>
+          </div>
+        </div>
+
+        <div class="task" id="exit">
+          <div class="task-head"><h3><span class="num">19</span>Exit reflection</h3><span class="time">8 min</span><span class="mode">Individual · finish for homework if needed</span></div>
+          <p class="instr">FIFA and the City of Munich both reviewed their own events. In <b>100–130 words</b>, explain what an organizer tends to emphasize, what it tends to leave out or downplay, and why. Give one example from each report. Use at least <b>two framing verbs</b> and <b>three words</b> from today's vocabulary. The chips light up when you use them.</p>
+          <textarea id="exitText" data-save style="min-height:150px"></textarea>
+          <div class="counter"><span id="wc">0</span> words · <span id="vc">0</span> target words used</div>
+          <div class="chips" id="vchips"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VOCAB + HOMEWORK ================= -->
+  <section class="lesson">
+    <div class="lesson-head"><div><h2>My Week 1 vocabulary bank</h2><p>Tick the words you can use confidently. Add them to your vocabulary notebook.</p></div></div>
+    <div class="stage-body" style="padding:14px 24px 18px">
+      <div class="bank">
+        <div>
+          <h4>Framing &amp; official reports</h4>
+          <label><input type="checkbox" data-save> emphasize / downplay <span>verb + noun</span></label>
+          <label><input type="checkbox" data-save> portray / frame X as Y <span>verb pattern</span></label>
+          <label><input type="checkbox" data-save> omit / omission <span>leave out / something left out</span></label>
+          <label><input type="checkbox" data-save> press release <span>official statement to the media</span></label>
+          <label><input type="checkbox" data-save> comprehensive <span>covering everything</span></label>
+          <label><input type="checkbox" data-save> unprecedented <span>never seen before</span></label>
+          <label><input type="checkbox" data-save> findings / insight / trend <span>results / understanding / direction</span></label>
+          <label><input type="checkbox" data-save> stakeholder / adept / evolve</label>
+        </div>
+        <div>
+          <h4>Big events &amp; crowds</h4>
+          <label><input type="checkbox" data-save> preliminary <span>early, not final</span></label>
+          <label><input type="checkbox" data-save> overshadowed (by) <span>made less happy by</span></label>
+          <label><input type="checkbox" data-save> deploy <span>send staff to a place</span></label>
+          <label><input type="checkbox" data-save> visitor management / overcrowding</label>
+          <label><input type="checkbox" data-save> incident <span>an event needing police or help</span></label>
+          <label><input type="checkbox" data-save> attribute X to Y <span>say Y caused X</span></label>
+          <label><input type="checkbox" data-save> consumption <span>amount used</span></label>
+          <label><input type="checkbox" data-save> restrained / effective</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="homework">
+    <h2>Before Week 2</h2>
+    <p><b>A1 Community Assignment, Article 1</b> (part of A1, 5%, due Week 3). Find Article 1 and a second outlet's coverage of the same event on <a href="https://approachusa.mn.co/spaces/14080227/content" target="_blank" rel="noopener">Approach's Community</a>. Complete the Article 1 assignment there, using today's checklist (author, date, evidence, purpose, omissions) and at least three examples of what each outlet includes, emphasizes or leaves out.</p>
+    <p>Finish Task 19 if you didn't complete it in class, then save this worksheet as a PDF.</p>
+  </section>
+
+  <footer>Approach International Student Center · Current Issues BP/AAP · Fall 2026 · Week 1. Syllabus is subject to change with notice from the instructor.</footer>
+</main>
+
+<script>
+(function(){
+  var KEY='approach-ci-bpaap-w1-v2';
+  var store={};
+  try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){store={};}
+  function persist(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+  // build vocabulary matching (Task 3)
+  var V=[
+    ['comprehensive','FIFA published a <i>comprehensive</i> report on all 104 matches.','covering every part of something'],
+    ['unprecedented','FIFA promised <i>unprecedented</i> insights.','never seen or done before'],
+    ['finding','The main <i>finding</i> was about counter-pressing.','a result discovered by a study'],
+    ['insight','Coaches want <i>insight</i> into why teams win.','a deep understanding of something'],
+    ['trend','Counter-pressing was a defining <i>trend</i>.','a general direction of change'],
+    ['adept','Spain were <i>adept</i> at quick attacks.','very skilled at something'],
+    ['evolve','The goalkeeper\'s role continues to <i>evolve</i>.','to develop gradually over time'],
+    ['stakeholder','The report is for coaches and other <i>stakeholders</i>.','a person or group with an interest in something'],
+    ['press release','FIFA shared the news in a <i>press release</i>.','an official statement given to the media'],
+    ['omission','Text B points out an important <i>omission</i>.','something that has been left out']
+  ];
+  var defs=V.map(function(v,i){return {i:i,d:v[2]};}).sort(function(a,b){return a.d.localeCompare(b.d);});
+  var tb=document.getElementById('vocab1');
+  V.forEach(function(v,i){
+    var tr=document.createElement('tr');
+    var opts='<option value="">—</option>'+defs.map(function(o){return '<option value="'+o.i+'">'+o.d+'</option>';}).join('');
+    tr.innerHTML='<td class="word">'+v[0]+'</td><td>'+v[1]+'</td><td><select class="fill" id="voc'+i+'" data-save data-answer="'+i+'">'+opts+'</select></td>';
+    tb.appendChild(tr);
+  });
+
+  var fields=document.querySelectorAll('[data-save]');
+  fields.forEach(function(el,i){ if(!el.dataset.k) el.dataset.k=el.id||('f'+i); });
+
+  document.querySelectorAll('textarea').forEach(function(t){
+    var m=document.createElement('div'); m.className='print-mirror'; t.after(m); t._mirror=m;
+  });
+  function grow(t){ t.style.height='auto'; t.style.height=Math.max(t.scrollHeight+2,58)+'px'; }
+  function sync(t){ if(t._mirror) t._mirror.textContent=t.value; grow(t); }
+
+  fields.forEach(function(el){
+    var v=store[el.dataset.k]; if(v===undefined) return;
+    if(el.type==='radio') el.checked=(v===el.value);
+    else if(el.type==='checkbox') el.checked=!!v;
+    else el.value=v;
+  });
+  document.querySelectorAll('textarea').forEach(sync);
+
+  function save(el){
+    if(el.type==='radio'){ if(el.checked){ document.querySelectorAll('input[type=radio][name="'+el.name+'"]').forEach(function(r){store[r.dataset.k]=el.value;}); } }
+    else if(el.type==='checkbox') store[el.dataset.k]=el.checked;
+    else store[el.dataset.k]=el.value;
+    persist();
+  }
+  document.addEventListener('input',function(e){ var el=e.target; if(el.matches('[data-save]')) save(el); if(el.tagName==='TEXTAREA') sync(el); el.classList.remove('ok','no'); });
+  document.addEventListener('change',function(e){ if(e.target.matches('[data-save]')) save(e.target); });
+  window.addEventListener('resize',function(){document.querySelectorAll('textarea').forEach(grow);});
+
+  function norm(s){return (s||'').toLowerCase().trim().replace(/\s+/g,' ').replace(/[.]$/,'');}
+  document.querySelectorAll('[data-check]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var g=b.closest('.check-group'), items=g.querySelectorAll('[data-answer]'), right=0;
+      items.forEach(function(el){
+        var ok=el.dataset.answer.split('|').some(function(a){return norm(a)===norm(el.value);});
+        el.classList.remove('ok','no'); el.classList.add(ok?'ok':'no'); if(ok) right++;
+      });
+      var r=g.querySelector('.result'); r.textContent=right+' / '+items.length+' correct'+(right===items.length?'. Excellent!':'. Try the red ones again.');
+      r.style.color= right===items.length?'var(--ok)':'var(--navy)';
+    });
+  });
+
+  // guess & reveal
+  var gb=document.getElementById('guessBox');
+  if(store.revealed) gb.classList.add('revealed');
+  document.getElementById('revealBtn').addEventListener('click',function(){gb.classList.add('revealed');store.revealed=true;persist();});
+
+  // spotter
+  document.querySelectorAll('.spot').forEach(function(s){
+    var key='spot-'+s.dataset.key, on=store[key]||[];
+    var words=s.textContent.trim().split(/\s+/); s.innerHTML='';
+    words.forEach(function(w,i){
+      var sp=document.createElement('span'); sp.className='w'; sp.textContent=w; sp.tabIndex=0; sp.setAttribute('role','button');
+      sp.dataset.clean=w.toLowerCase().replace(/[^a-z\-']/g,'');
+      if(on.indexOf(i)>-1) sp.classList.add('on');
+      function tog(){ sp.classList.toggle('on'); var arr=[]; s.querySelectorAll('.w').forEach(function(x,j){if(x.classList.contains('on'))arr.push(j);}); store[key]=arr; persist(); }
+      sp.addEventListener('click',tog); sp.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog();}});
+      s.appendChild(sp); s.appendChild(document.createTextNode(' '));
+    });
+  });
+  document.getElementById('showLoaded').addEventListener('click',function(){
+    document.querySelectorAll('.spot').forEach(function(s){
+      var list=s.dataset.loaded.split(',');
+      s.querySelectorAll('.w').forEach(function(w){ if(list.indexOf(w.dataset.clean)>-1) w.classList.toggle('sugg'); });
+    });
+  });
+
+  // exit writing chips
+  var targets=[['emphasize','emphasi[sz]'],['downplay','downplay'],['portray as','portray'],['frame as','fram(e|es|ed|ing)\\b'],['omit / omission','omi(t|ssion)'],['comprehensive','comprehensive'],['unprecedented','unprecedented'],['findings','finding'],['insight','insight'],['stakeholder','stakeholder'],['press release','press release'],['preliminary','preliminary'],['overshadowed','overshadow'],['incidents','incident'],['attribute','attribut'],['restrained','restrain'],['effective','effective'],['overcrowding','overcrowd']];
+  var chipBox=document.getElementById('vchips');
+  targets.forEach(function(t){var c=document.createElement('span');c.className='chip';c.textContent=t[0];c.dataset.re=t[1];chipBox.appendChild(c);});
+  var ex=document.getElementById('exitText');
+  function exitUpdate(){
+    var txt=ex.value, n=(txt.trim().match(/\S+/g)||[]).length, hits=0;
+    document.getElementById('wc').textContent=n;
+    chipBox.querySelectorAll('.chip').forEach(function(c){ var h=new RegExp('\\b'+c.dataset.re,'i').test(txt); c.classList.toggle('hit',h); if(h)hits++; });
+    document.getElementById('vc').textContent=hits;
+  }
+  ex.addEventListener('input',exitUpdate); exitUpdate();
+
+  // timer
+  var tmin=document.getElementById('tmin'), tdisp=document.getElementById('tout'), tgo=document.getElementById('tgo'), left=600, iv=null;
+  function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+  function reset(){clearInterval(iv);iv=null;left=Math.max(1,parseInt(tmin.value||10,10))*60;tdisp.textContent=fmt(left);tgo.textContent='Start';tdisp.style.background='';}
+  tmin.addEventListener('change',reset);
+  document.getElementById('treset').addEventListener('click',reset);
+  tgo.addEventListener('click',function(){
+    if(iv){clearInterval(iv);iv=null;tgo.textContent='Resume';return;}
+    tgo.textContent='Pause';
+    iv=setInterval(function(){left--;tdisp.textContent=fmt(Math.max(left,0)); if(left<=0){clearInterval(iv);iv=null;tgo.textContent='Start';tdisp.style.background='var(--gold)';}},1000);
+  });
+
+  document.getElementById('printBtn').addEventListener('click',function(){
+    if(!document.getElementById('sname').value.trim()){ alert('Please type your name at the top before saving your worksheet.'); document.getElementById('sname').focus(); return; }
+    document.querySelectorAll('textarea').forEach(sync);
+    window.print();
+  });
+  window.addEventListener('beforeprint',function(){document.querySelectorAll('textarea').forEach(sync);});
+})();
+</script>
+</body>
+</html>
